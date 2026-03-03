@@ -1,71 +1,205 @@
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background-color: #f0f2f5;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+:root {
+    --primary-color: #6b8e23; /* Olive Drab for a natural feel */
+    --secondary-color: #f5f5dc; /* Beige background */
+    --accent-color: #8fbc8f; /* Dark Sea Green */
+    --text-color: #2f4f4f; /* Dark Slate Gray */
+    --white: #ffffff;
+    --card-bg: #ffffff;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s ease;
+}
+
+body.dark-mode {
+    --primary-color: #9acd32; /* YellowGreen for better visibility */
+    --secondary-color: #1a1a1a; /* Dark background */
+    --accent-color: #2d4f2d; /* Darker green */
+    --text-color: #e0e0e0; /* Light text */
+    --white: #2c2c2c;
+    --card-bg: #2c2c2c;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.container {
-    background: #fff;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: #ffffff; /* Header text usually stays light for contrast */
+    padding: 4rem 1rem;
     text-align: center;
-    width: 90%;
-    max-width: 500px;
+    margin-bottom: 3rem;
+    position: relative;
 }
 
-h1 {
-    color: #1a73e8;
-    margin-bottom: 1.5rem;
+.header-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
 }
 
-#generate {
-    background-color: #1a73e8;
-    color: white;
+.header-content p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+}
+
+#theme-btn {
+    background: rgba(255, 255, 255, 0.2);
     border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, box-shadow 0.3s;
-    margin-bottom: 1.5rem;
-}
-
-#generate:hover {
-    background-color: #155ab6;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-.lotto-numbers-container {
-    display: grid;
-    gap: 1rem;
-}
-
-.lotto-set {
-    background-color: #e8f0fe;
-    padding: 1rem;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.lotto-number {
-    background-color: #fff;
-    border: 1px solid #dcdcdc;
+    color: white;
+    padding: 0.8rem;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: var(--transition);
+    backdrop-filter: blur(5px);
+}
+
+#theme-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(20deg);
+}
+
+/* Container */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Step Card */
+.step-card {
+    background-color: var(--card-bg);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    box-shadow: var(--shadow);
+    position: relative;
+    transition: var(--transition), background-color 0.3s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.badge {
+    position: absolute;
+    top: -15px;
+    left: 2rem;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 0.5rem 1.5rem;
+    border-radius: 30px;
     font-weight: bold;
-    font-size: 1.2rem%;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 10px rgba(107, 142, 35, 0.3);
+}
+
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .content-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+.image-area img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.text-area h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.en-name {
+    font-size: 1rem;
+    color: #888;
+    font-weight: normal;
+    font-style: italic;
+}
+
+.description {
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+}
+
+.points {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.points li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.points li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.video-link {
+    display: inline-block;
+    background-color: #ff0000;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: var(--transition);
+}
+
+.video-link:hover {
+    background-color: #cc0000;
+    transform: scale(1.05);
+}
+
+.video-link i {
+    margin-right: 0.5rem;
+}
+
+/* Completed State in Dark Mode */
+body.dark-mode .step-card.completed {
+    background-color: #1e291e;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: #888;
+    font-size: 0.9rem;
 }
