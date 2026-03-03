@@ -1,1 +1,71 @@
-/* Add styles here */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+}
+
+h1 {
+    color: #1a73e8;
+    margin-bottom: 1.5rem;
+}
+
+#generate {
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    margin-bottom: 1.5rem;
+}
+
+#generate:hover {
+    background-color: #155ab6;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.lotto-numbers-container {
+    display: grid;
+    gap: 1rem;
+}
+
+.lotto-set {
+    background-color: #e8f0fe;
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.lotto-number {
+    background-color: #fff;
+    border: 1px solid #dcdcdc;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2rem%;
+}
